@@ -54,8 +54,8 @@ void loop() {
   }else {
     program = ZOOM;
   }
-setInputFlags();
-resolveInputFlags();
+  setInputFlags();
+  resolveInputFlags();
 
 }
 
@@ -69,7 +69,7 @@ void setInputFlags(){
       lastDebounceTime[i] = millis();
     }
 
-  if ((millis() - lastDebounceTime[i]) > debounceDelay) {
+    if ((millis() - lastDebounceTime[i]) > debounceDelay) {
     // whatever the reading is at, it's been there for longer than the debounce
     // delay, so take it as the actual current state:
 
@@ -101,139 +101,139 @@ void resolveInputFlags(){
 }
 
 void updateKeyPress(int input){
-	//
-	if(input == 0) {//participants
-		if(platform == macOS){
-			switch (program){
-				case ZOOM:
-					Keyboard.press(KEY_LEFT_GUI);
-          Keyboard.press('u');
-          delay(100);
-          Keyboard.releaseAll();
-					break;
-				case TEAMS:
-					Serial.println("No set action");
-					break;
-			}
-		}else if(platform == winOS){
-			switch (program){
-				case ZOOM:
-					Keyboard.press(KEY_LEFT_ALT);
-          Keyboard.press('u');
-          delay(100);
-          Keyboard.releaseAll();
-					break;
-				case TEAMS:
-					Serial.println("No set action");
-					break;
-			}
-		}
-	}else if(input == 1) { //Mic Mute
-		if(platform == macOS){
-			switch (program) {
-				case ZOOM:
-					Keyboard.press(KEY_LEFT_GUI);
-					Keyboard.press(KEY_LEFT_SHIFT);
+  //
+  if(input == 0) {//participants
+    if(platform == macOS){
+      switch (program){
+        case ZOOM:
+	Keyboard.press(KEY_LEFT_GUI);
+        Keyboard.press('u');
+        delay(100);
+        Keyboard.releaseAll();
+	break;
+	case TEAMS:
+	Serial.println("No set action");
+	break;
+        }
+    }else if(platform == winOS){
+      switch (program){
+	case ZOOM:
+	Keyboard.press(KEY_LEFT_ALT);
+        Keyboard.press('u');
+        delay(100);
+        Keyboard.releaseAll();
+	break;
+	case TEAMS:
+	Serial.println("No set action");
+	break;
+	}
+    }
+    }else if(input == 1) { //Mic Mute
+      if(platform == macOS){
+	switch (program) {
+	  case ZOOM:
+	  Keyboard.press(KEY_LEFT_GUI);
+	  Keyboard.press(KEY_LEFT_SHIFT);
           Keyboard.press('a');
           delay(100);
           Keyboard.releaseAll();
-					break;
-				case TEAMS:
-					Keyboard.press(KEY_LEFT_GUI);
-					Keyboard.press(KEY_LEFT_SHIFT);
+	  break;
+	  case TEAMS:
+	  Keyboard.press(KEY_LEFT_GUI);
+	  Keyboard.press(KEY_LEFT_SHIFT);
           Keyboard.press('m');
           delay(100);
           Keyboard.releaseAll();
-					break;
-			}
-		}else if(platform == winOS){
-			switch (program){
-				case ZOOM:
-					Keyboard.press(KEY_LEFT_ALT);
+	  break;
+	  }
+      }else if(platform == winOS){
+        switch (program){
+	  case ZOOM:
+	  Keyboard.press(KEY_LEFT_ALT);
           Keyboard.press('a');
           delay(100);
           Keyboard.releaseAll();
-					break;
-				case TEAMS:
-				  Keyboard.press(KEY_LEFT_CTRL);
-					Keyboard.press(KEY_LEFT_SHIFT);
+	  break;
+	  case TEAMS:
+	  Keyboard.press(KEY_LEFT_CTRL);
+	  Keyboard.press(KEY_LEFT_SHIFT);
           Keyboard.press('m');
           delay(100);
           Keyboard.releaseAll();
-					break;
-			}
-		}
+	  break;
+	  }
+	}
 	//
-	}else if(input == 2) { //Video on/off
-			if(platform == macOS){
-				switch (program) {
-					case ZOOM:
-					  Keyboard.press(KEY_LEFT_GUI);
-					  Keyboard.press(KEY_LEFT_SHIFT);
-            Keyboard.press('v');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-					case TEAMS:
-					  Keyboard.press(KEY_LEFT_GUI);
-					  Keyboard.press(KEY_LEFT_SHIFT);
-            Keyboard.press('o');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-				}
-			}else if(platform == winOS){
-				switch (program){
-					case ZOOM:
-						Keyboard.press(KEY_LEFT_ALT);
-            Keyboard.press('v');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-					case TEAMS:
-						Keyboard.press(KEY_LEFT_CTRL);
-					  Keyboard.press(KEY_LEFT_SHIFT);
-            Keyboard.press('o');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-				}
-			}
+    }else if(input == 2) { //Video on/off
+      if(platform == macOS){
+        switch (program) {
+	  case ZOOM:
+	  Keyboard.press(KEY_LEFT_GUI);
+	  Keyboard.press(KEY_LEFT_SHIFT);
+          Keyboard.press('v');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  case TEAMS:
+	  Keyboard.press(KEY_LEFT_GUI);
+	  Keyboard.press(KEY_LEFT_SHIFT);
+          Keyboard.press('o');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  }
+      }else if(platform == winOS){
+	switch (program){
+	  case ZOOM:
+	  Keyboard.press(KEY_LEFT_ALT);
+          Keyboard.press('v');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  case TEAMS:
+	  Keyboard.press(KEY_LEFT_CTRL);
+	  Keyboard.press(KEY_LEFT_SHIFT);
+          Keyboard.press('o');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  }
+	}
 	//
-	}else if(input == 3) {//Screen Share
-			if(platform == macOS){
-				switch (program) {
-					case ZOOM:
-						Keyboard.press(KEY_LEFT_GUI);
-					  Keyboard.press(KEY_LEFT_SHIFT);
-            Keyboard.press('s');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-					case TEAMS:
-						Keyboard.press(KEY_LEFT_GUI);
-					  Keyboard.press(KEY_LEFT_SHIFT);
-            Keyboard.press(' ');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-				}
-			}else if(platform == winOS){
-				switch (program){
-					case ZOOM:
-						Keyboard.press(KEY_LEFT_ALT);
-            Keyboard.press('s');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-					case TEAMS:
-						Keyboard.press(KEY_LEFT_CTRL);
-					  Keyboard.press(KEY_LEFT_SHIFT);
-            Keyboard.press(' ');
-            delay(100);
-            Keyboard.releaseAll();
-						break;
-				}
-			}
-}
+    }else if(input == 3) {//Screen Share
+      if(platform == macOS){
+	switch (program) {
+	  case ZOOM:
+	  Keyboard.press(KEY_LEFT_GUI);
+	  Keyboard.press(KEY_LEFT_SHIFT);
+          Keyboard.press('s');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  case TEAMS:
+	  Keyboard.press(KEY_LEFT_GUI);
+	  Keyboard.press(KEY_LEFT_SHIFT);
+          Keyboard.press(' ');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  }
+     }else if(platform == winOS){
+	switch (program){
+	  case ZOOM:
+	  Keyboard.press(KEY_LEFT_ALT);
+          Keyboard.press('s');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  case TEAMS:
+	  Keyboard.press(KEY_LEFT_CTRL);
+	  Keyboard.press(KEY_LEFT_SHIFT);
+          Keyboard.press(' ');
+          delay(100);
+          Keyboard.releaseAll();
+	  break;
+	  }
+	}
+  }
 }
