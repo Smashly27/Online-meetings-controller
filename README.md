@@ -10,3 +10,11 @@ Microcontroller used is a Arduino Pro Micro copy.
 All inputs setup utilising internal pull up resistors.
 
 When a push button is pressed Arduino will send a keyboard press.
+
+== Installation
+
+== Circuit
+
+== BOM
+
+== Contributers
